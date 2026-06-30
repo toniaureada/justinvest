@@ -1,0 +1,1278 @@
+
+
+Justinvest mockup · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Justinvest – Building Relationships. Not Transactions.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B3C5D;
+    --slate: #328CC1;
+    --gold: #D9B310;
+    --gold-light: #f0cc3a;
+    --white: #FFFFFF;
+    --off-white: #F7F9FB;
+    --gray-light: #e8edf2;
+    --gray: #8a9bb0;
+    --text-dark: #0d1f2d;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', sans-serif;
+    --font-label: 'Barlow Condensed', sans-serif;
+  }
+ 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(11,60,93,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(217,179,16,0.25);
+  }
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .nav-logo .wordmark {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .nav-logo .tagline-nav {
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 600 !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+ 
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px 0;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(11,60,93,0.55) 0%, rgba(11,60,93,0.78) 60%, rgba(11,60,93,0.92) 100%),
+      url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1800&q=80') center/cover no-repeat;
+  }
+  /* Delaware River skyline feel */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=80') center/cover no-repeat;
+    opacity: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-label);
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 24px;
+    max-width: 760px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    letter-spacing: 0.2px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 15px 32px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+ 
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    right: 80px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--font-label);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.35));
+  }
+ 
+  /* ── SERVICE PILLARS ── */
+  .pillars {
+    background: var(--navy);
+    padding: 0;
+  }
+  .pillars-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pillar {
+    padding: 56px 48px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.35s;
+  }
+  .pillar:hover { background: rgba(255,255,255,0.04); }
+  .pillar:hover::before { transform: scaleX(1); }
+  .pillar-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .pillar-label {
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .pillar h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .pillar p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .pillar-cta {
+    font-family: var(--font-label);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+  }
+  .pillar-cta::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+  .pillar:hover .pillar-cta::after { transform: translateX(4px); }
+ 
+  /* ── SECTION COMMON ── */
+  section { padding: 96px 0; }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+  .section-label {
+    font-family: var(--font-label);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--slate);
+  }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .section-body {
+    font-size: 16px;
+    color: #4a6070;
+    line-height: 1.75;
+    max-width: 620px;
+  }
+ 
+  /* ── ABOUT ── */
+  .about { background: var(--off-white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-photo-wrap {
+    position: relative;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 2px;
+    max-height: 480px;
+    overflow: hidden;
+  }
+  .about-photo-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .about-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    background: var(--gold);
+    border-radius: 4px;
+    z-index: -1;
+  }
+  .about-content .section-label { margin-top: 0; }
+  .about-bio {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: #3a5266;
+    margin-bottom: 32px;
+  }
+  .credentials-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .badge {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+ 
+  /* ── SERVICES DETAIL ── */
+  .services-detail { background: var(--white); }
+  .services-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--gray-light);
+    margin-bottom: 56px;
+  }
+  .tab {
+    padding: 16px 32px;
+    font-family: var(--font-label);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gray);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab.active { color: var(--navy); border-color: var(--gold); }
+  .tab:hover { color: var(--navy); }
+  .service-panel { display: none; }
+  .service-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover { box-shadow: 0 8px 32px rgba(11,60,93,0.1); transform: translateY(-2px); }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--slate));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .service-card:hover::after { opacity: 1; }
+  .service-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 13px;
+    color: #6a7f8f;
+    line-height: 1.6;
+  }
+  .service-tag {
+    display: inline-block;
+    font-family: var(--font-label);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+ 
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--navy); padding: 96px 0; }
+  .testimonials .section-label::before { background: var(--gold); }
+  .testimonials .section-label { color: var(--gold); }
+  .testimonials h2.section-title { color: var(--white); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px; left: 24px;
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+  }
+  .review-stars {
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+  }
+  .review-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .review-author {
+    font-family: var(--font-label);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .review-source {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+ 
+  /* ── LEAD CAPTURE / CTA STRIP ── */
+  .cta-strip {
+    background: linear-gradient(135deg, #0a2e48, var(--navy));
+    border-top: 1px solid rgba(217,179,16,0.2);
+    border-bottom: 1px solid rgba(217,179,16,0.2);
+    padding: 72px 0;
+  }
+  .cta-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .cta-strip h2 {
+    font-family: var(--font-display);
+    font-size: 42px;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 500px;
+  }
+  .cta-strip h2 span { color: var(--gold); }
+  .cta-buttons { display: flex; gap: 16px; flex-shrink: 0; }
+ 
+  /* ── CONTACT ── */
+  .contact { background: var(--off-white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info h3 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--navy);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .contact-item-text strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+  .contact-item-text span {
+    font-size: 14.5px;
+    color: var(--navy);
+  }
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-top: 8px;
+  }
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    color: var(--navy);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    padding: 48px;
+    box-shadow: 0 4px 24px rgba(11,60,93,0.06);
+  }
+  .contact-form h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .form-sub {
+    font-size: 13.5px;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--slate);
+    background: var(--white);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+ 
+  /* ── LICENSES ── */
+  .licenses {
+    background: var(--navy);
+    padding: 56px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .licenses-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .license-group { }
+  .license-group-label {
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .license-list {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 2;
+  }
+  .divider-v {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: #071e2e;
+    padding: 56px 0 32px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .wordmark {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .footer-brand .tagline {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    font-family: var(--font-label);
+  }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+  .footer-col h4 {
+    font-family: var(--font-label);
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+ 
+  /* ── RESOURCE CENTER PREVIEW ── */
+  .resources { background: var(--white); }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .resource-card {
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .resource-card:hover { box-shadow: 0 6px 24px rgba(11,60,93,0.1); }
+  .resource-thumb {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+  .resource-thumb.re { background: linear-gradient(135deg, #0B3C5D, #1a5a7a); }
+  .resource-thumb.ins { background: linear-gradient(135deg, #1a5a7a, #328CC1); }
+  .resource-thumb.veh { background: linear-gradient(135deg, #7a6000, #D9B310); }
+  .resource-thumb.fin { background: linear-gradient(135deg, #2d4a1a, #4a7a2a); }
+  .resource-body { padding: 20px; }
+  .resource-cat {
+    font-family: var(--font-label);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .resource-card h4 {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .resource-card p {
+    font-size: 12.5px;
+    color: #6a7f8f;
+    line-height: 1.5;
+  }
+ 
+  /* ── MOCKUP BANNER ── */
+  .mockup-banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 36px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-label);
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+
+  }
+ 
+  /* offset nav for banner */
+  body { padding-top: 36px; }
+</style>
+</head>
+<body>
+ 
+<!-- MOCKUP INDICATOR -->
+<div class="mockup-banner">⚠ Website Mockup / Draft — Not Live</div>
+ 
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="wordmark">JUSTINVEST</span>
+    <span class="tagline-nav">Building Relationships. Not Transactions.</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Real Estate</a></li>
+    <li><a href="#">Insurance</a></li>
+    <li><a href="#">Vehicle Solutions</a></li>
+    <li><a href="#">Resource Center</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-cta">Schedule a Call</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background:
+    linear-gradient(to bottom, rgba(11,60,93,0.5) 0%, rgba(11,60,93,0.78) 55%, rgba(11,60,93,0.96) 100%),
+    url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=80') center/cover no-repeat;">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Real Estate · Insurance · Vehicle Solutions</p>
+    <h1>One Advisor.<br><em>Every Major</em><br>Decision.</h1>
+    <p class="hero-sub">Justin Williams brings Real Estate, Insurance, and Vehicle Solutions under one trusted brand. Delaware, Pennsylvania, and Maryland.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Find Your Next Home</a>
+      <a href="#" class="btn-outline">Compare My Coverage</a>
+      <a href="#" class="btn-outline">Shop Available Inventory</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+ 
+<!-- SERVICE PILLARS -->
+<div class="pillars">
+  <div class="pillars-inner">
+    <a href="#" class="pillar">
+      <span class="pillar-icon">🏡</span>
+      <p class="pillar-label">Real Estate</p>
+      <h3>Find Your<br>Next Home</h3>
+      <p>Buyer & Seller Representation · First-Time Buyers · Investment · Luxury · New Construction</p>
+      <span class="pillar-cta">Search Listings</span>
+    </a>
+    <a href="#" class="pillar">
+      <span class="pillar-icon">🛡</span>
+      <p class="pillar-label">Insurance</p>
+      <h3>Compare<br>My Coverage</h3>
+      <p>Auto · Home · Renters · Commercial · Umbrella & more · Free defensive driving course available.</p>
+      <span class="pillar-cta">Request Comparison</span>
+    </a>
+    <a href="#" class="pillar">
+      <span class="pillar-icon">🚗</span>
+      <p class="pillar-label">Vehicle Solutions</p>
+      <h3>Shop Available<br>Inventory</h3>
+      <p>3,000+ New Vehicles · 500+ Pre-Owned · Chrysler, Dodge, Jeep, Ram, Toyota, Ford & more</p>
+      <span class="pillar-cta">Browse Inventory</span>
+    </a>
+  </div>
+</div>
+ 
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo">
+          <span class="about-photo-label">[ Headshot Photo ]</span>
+        </div>
+        <div class="about-accent"></div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About Justin</p>
+        <h2 class="section-title">More Than an Advisor.<br>A Trusted Partner.</h2>
+        <p class="about-bio">Justin Williams is the Founder & CEO of Justinvest, built around one simple mission: helping clients make smarter decisions through life's biggest purchases. Whether purchasing a home, protecting assets with insurance, or finding the right vehicle, clients receive honest guidance, personalized service, and long-term support.</p>
+        <p class="about-bio">Justin is a licensed REALTOR® with Berkshire Hathaway HomeServices Fox & Roach on the Scott Farnan Team, serving Delaware, Pennsylvania, and Maryland. He is also a licensed Insurance Producer with the Nichols Agency – Allstate and an Automotive Sales Consultant with Preston CDJR of Wilmington.</p>
+        <p class="about-bio">Outside of business, Justin is a proud father of twin boys and a youth football coach in Middletown, Delaware—experiences that shaped Justinvest's core values: honesty, accountability, and lasting relationships.</p>
+        <div class="credentials-row">
+          <span class="badge">REALTOR® Licensed</span>
+          <span class="badge">National Association of REALTORS®</span>
+          <span class="badge">Kent County Association of REALTORS®</span>
+          <span class="badge">Licensed Insurance Producer</span>
+          <span class="badge">DE · PA · MD</span>
+        </div>
+        <div style="margin-top: 32px; display: flex; gap: 24px; align-items: center;">
+          <!-- Placeholder for Berkshire Hathaway logo (must be larger per RE Commission) -->
+          <div style="background:#1a3a1a; color:#c8a951; font-family: Georgia, serif; font-size:10px; padding: 10px 16px; border-radius:4px; letter-spacing:1px; text-align:center; font-weight:bold; border:1px solid #c8a951;">
+            BERKSHIRE HATHAWAY<br>HomeServices<br><span style="font-size:9px; color: rgba(200,169,81,0.7);">[ Logo Placeholder ]</span>
+          </div>
+          <div style="background:#fff; color: #444; font-family: Georgia,serif; font-size:9px; padding: 8px 14px; border-radius:4px; letter-spacing:1px; text-align:center; border:1px solid #ddd;">
+            SCOTT FARNAN TEAM<br><span style="font-size:8px; color:#888;">[ Logo Placeholder ]</span>
+          </div>
+        </div>
+        <p style="font-size: 11px; color: var(--gray); margin-top: 8px; letter-spacing: 0.3px;">* Berkshire Hathaway logo displayed larger per Real Estate Commission requirement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SERVICES DETAIL -->
+<section class="services-detail">
+  <div class="container">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Services Built<br>Around Your Life</h2>
+    <div class="services-tabs" style="margin-top: 40px;">
+      <div class="tab active" onclick="showTab('re')">Real Estate</div>
+      <div class="tab" onclick="showTab('ins')">Insurance</div>
+      <div class="tab" onclick="showTab('veh')">Vehicle Solutions</div>
+    </div>
+ 
+    <!-- Real Estate Panel -->
+    <div class="service-panel active" id="panel-re">
+      <div class="service-card"><span class="service-tag">Buyers</span><h4>Buyer Representation</h4><p>Full guidance from search through closing, negotiating the best terms on your behalf.</p></div>
+      <div class="service-card"><span class="service-tag">Sellers</span><h4>Seller Representation</h4><p>Strategic marketing, pricing, and negotiation to get you the best outcome.</p></div>
+      <div class="service-card"><span class="service-tag">First-Time</span><h4>First-Time Homebuyers</h4><p>Step-by-step guidance for buyers navigating the homeownership journey for the first time.</p></div>
+      <div class="service-card"><span class="service-tag">Invest</span><h4>Investment Properties</h4><p>Identify cash-flow properties and build long-term wealth through real estate.</p></div>
+      <div class="service-card"><span class="service-tag">Luxury</span><h4>Luxury Homes</h4><p>White-glove service for buyers and sellers in the premium market.</p></div>
+      <div class="service-card"><span class="service-tag">Build</span><h4>New Construction</h4><p>Representing buyers in new development projects and builder negotiations.</p></div>
+    </div>
+ 
+    <!-- Insurance Panel -->
+    <div class="service-panel" id="panel-ins">
+      <div class="service-card"><span class="service-tag">Auto</span><h4>Auto Insurance</h4><p>Competitive coverage options for your vehicle through Allstate and partner carriers.</p></div>
+      <div class="service-card"><span class="service-tag">Home</span><h4>Homeowners Insurance</h4><p>Protect your most valuable asset with the right coverage at the right price.</p></div>
+      <div class="service-card"><span class="service-tag">Renters</span><h4>Renters Insurance</h4><p>Affordable protection for your belongings and personal liability.</p></div>
+      <div class="service-card"><span class="service-tag">Commercial</span><h4>Commercial Insurance</h4><p>Business coverage solutions for small and mid-size operations.</p></div>
+      <div class="service-card"><span class="service-tag">Umbrella</span><h4>Umbrella Insurance</h4><p>Extra liability protection above and beyond your existing policies.</p></div>
+      <div class="service-card" style="background: linear-gradient(135deg, #0B3C5D08, #328CC115); border-color: var(--slate);">
+        <span class="service-tag">Free Program</span>
+        <h4>Defensive Driving Course 🎓</h4>
+        <p>Free for all Delaware residents. Available to Pennsylvania residents age 55+. Ask about eligibility.</p>
+      </div>
+    </div>
+ 
+    <!-- Vehicle Panel -->
+    <div class="service-panel" id="panel-veh">
+      <div class="service-card"><span class="service-tag">New</span><h4>New Vehicle Inventory</h4><p>Access 3,000+ new vehicles across Chrysler, Dodge, Jeep, Ram, Toyota, Ford, and more.</p></div>
+      <div class="service-card"><span class="service-tag">Pre-Owned</span><h4>Pre-Owned Inventory</h4><p>500+ pre-owned vehicles, including Certified Pre-Owned options with warranty coverage.</p></div>
+      <div class="service-card"><span class="service-tag">Trade-In</span><h4>Trade-In Appraisal</h4><p>Get a fair market appraisal for your current vehicle before your next purchase.</p></div>
+      <div class="service-card"><span class="service-tag">Finance</span><h4>Financing Guidance</h4><p>Navigating auto financing to find terms that fit your budget and credit profile.</p></div>
+      <div class="service-card"><span class="service-tag">Lease</span><h4>Leasing Guidance</h4><p>Understand the pros and cons of leasing vs. buying for your specific situation.</p></div>
+      <div class="service-card"><span class="service-tag">Assist</span><h4>Vehicle Purchase Assistance</h4><p>Let Justin advocate for you throughout the entire vehicle buying process.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <p class="section-label">What Clients Say</p>
+    <h2 class="section-title">Real Results.<br>Real Relationships.</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Justin made this experience excellent. He was very well educated on the vehicle I was purchasing, and a pleasure to work with. I'd recommend him to all of my family and friends.</p>
+        <p class="review-author">Laurie Price</p>
+        <p class="review-source">Google Review · Vehicle Solutions</p>
+      </div>
+      <div class="review-card">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Justin exceeded our expectations. He was patient, knowledgeable, and worked very hard to get us the perfect vehicle. We are so impressed, and thankful for him.</p>
+        <p class="review-author">Susan Best</p>
+        <p class="review-source">Google Review · Vehicle Solutions</p>
+      </div>
+      <div class="review-card">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Justin was absolutely amazing! My husband and I were fortunate enough to find two great vehicles with his help. He was extremely personable and made the entire car buying process a great experience.</p>
+        <p class="review-author">Allison Guadarrama</p>
+        <p class="review-source">Google Review · Vehicle Solutions</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- RESOURCE CENTER PREVIEW -->
+<section class="resources">
+  <div class="container">
+    <p class="section-label">Justinvest Resource Center</p>
+    <h2 class="section-title">Learn. Decide.<br>Confidently.</h2>
+    <p class="section-body">Our Resource Center provides free educational content to help you navigate life's biggest decisions—whether you're buying a home, comparing insurance policies, or choosing the right vehicle.</p>
+    <div class="resource-grid">
+      <div class="resource-card">
+        <div class="resource-thumb re">🏡</div>
+        <div class="resource-body">
+          <p class="resource-cat">Real Estate</p>
+          <h4>First-Time Homebuyer's Complete Checklist</h4>
+          <p>Everything you need to know before making an offer.</p>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-thumb ins">🛡</div>
+        <div class="resource-body">
+          <p class="resource-cat">Insurance</p>
+          <h4>Understanding Your Auto Coverage Options</h4>
+          <p>Liability, collision, comprehensive—explained simply.</p>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-thumb veh">🚗</div>
+        <div class="resource-body">
+          <p class="resource-cat">Vehicle Solutions</p>
+          <h4>Lease vs. Buy: Which Makes Sense for You?</h4>
+          <p>A side-by-side breakdown to help you decide.</p>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-thumb fin">💰</div>
+        <div class="resource-body">
+          <p class="resource-cat">Financial Resources</p>
+          <h4>How Your Credit Score Affects Your Home Purchase</h4>
+          <p>Tips to improve your score before you apply.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <a href="#" class="btn-primary">Visit the Resource Center</a>
+    </div>
+  </div>
+</section>
+ 
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container cta-strip-inner">
+    <h2>Ready to work with <span>one advisor</span> for all of life's biggest decisions?</h2>
+    <div class="cta-buttons">
+      <a href="#" class="btn-primary">Schedule a Consultation</a>
+      <a href="#" class="btn-outline">Call (484) 470-9493</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- CONTACT -->
+<section class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-label">Get in Touch</p>
+        <h3>Let's Start the Conversation.</h3>
+        <p style="font-size:14.5px; color:#4a6070; line-height:1.7; margin-bottom:36px;">Whether you're buying a home, reviewing your insurance, or shopping for a vehicle—reach out and Justin will personally respond to your inquiry.</p>
+ 
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Primary Phone</strong>
+            <span>(484) 470-9493</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <span>Justinvest.co@gmail.com</span><br>
+            <span style="font-size:12px; color:var(--gray);">(Professional domain email coming soon)</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-item-text">
+            <strong>Hours of Operation</strong>
+            <div style="margin-top: 6px;">
+              <div class="hours-row" style="border: none; padding: 3px 0; font-size: 13px; color: #3a5266;"><span>Monday – Friday</span><span>8:45 AM – 8:00 PM</span></div>
+              <div class="hours-row" style="border: none; padding: 3px 0; font-size: 13px; color: #3a5266;"><span>Saturday</span><span>By Appointment</span></div>
+              <div class="hours-row" style="border: none; padding: 3px 0; font-size: 13px; color: #3a5266;"><span>Sunday</span><span>Closed</span></div>
+            </div>
+          </div>
+        </div>
+ 
+        <div style="margin-top: 32px; background: var(--white); border: 1px solid var(--gray-light); border-radius: 8px; padding: 20px 24px;">
+          <p style="font-size: 11px; font-weight:700; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); margin-bottom: 12px;">Service Locations</p>
+          <p style="font-size:13.5px; color: var(--navy);">Real Estate · Insurance · Vehicle Solutions</p>
+          <p style="font-size:13px; color: var(--gray); margin-top: 4px;">Delaware · Pennsylvania · Maryland</p>
+        </div>
+      </div>
+ 
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <p class="form-sub">We'll get back to you within one business day.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="(302) 555-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select>
+            <option value="">Select a Service</option>
+            <option>Real Estate – Buying a Home</option>
+            <option>Real Estate – Selling My Home</option>
+            <option>Real Estate – Home Valuation</option>
+            <option>Insurance – Auto Coverage</option>
+            <option>Insurance – Homeowners Coverage</option>
+            <option>Insurance – Compare My Coverage</option>
+            <option>Vehicle Solutions – New Vehicle</option>
+            <option>Vehicle Solutions – Pre-Owned Vehicle</option>
+            <option>Vehicle Solutions – Trade-In Appraisal</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell Justin a bit about what you're looking for..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%; text-align:center;">Send Message</button>
+        <p style="font-size:11.5px; color:var(--gray); text-align:center; margin-top:14px; line-height:1.5;">By submitting, you agree to be contacted regarding your inquiry. Your information is never sold or shared.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- LICENSE STRIP -->
+<div class="licenses">
+  <div class="container licenses-inner">
+    <div class="license-group">
+      <p class="license-group-label">Real Estate Licenses</p>
+      <div class="license-list">
+        PA License: RS379914<br>
+        DE License: RS-0040492<br>
+        MD License: 5022754<br>
+        NAR Member ID: 247506028
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="license-group">
+      <p class="license-group-label">Insurance Licenses</p>
+      <div class="license-list">
+        NPN: 22167625<br>
+        PA License: 1314133<br>
+        DE License: 3004206558<br>
+        MD License: 3004207239
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="license-group">
+      <p class="license-group-label">Memberships</p>
+      <div class="license-list">
+        National Association of REALTORS®<br>
+        Kent County Association of REALTORS®
+      </div>
+    </div>
+    <div class="divider-v"></div>
+    <div class="license-group">
+      <p class="license-group-label">Coverage Areas</p>
+      <div class="license-list">
+        Delaware · Pennsylvania<br>
+        Maryland
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="wordmark">JUSTINVEST</div>
+        <div class="tagline">Building Relationships. Not Transactions.</div>
+        <p>One trusted advisor for Real Estate, Insurance, and Vehicle Solutions across Delaware, Pennsylvania, and Maryland.</p>
+        <p style="margin-top:14px;">📞 (484) 470-9493<br>✉ Justinvest.co@gmail.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Real Estate</h4>
+        <ul>
+          <li><a href="#">Home Search (RealScout)</a></li>
+          <li><a href="#">Home Valuation</a></li>
+          <li><a href="#">Buyer Consultation</a></li>
+          <li><a href="#">Seller Consultation</a></li>
+          <li><a href="#">Investment Properties</a></li>
+          <li><a href="#">Luxury Homes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Insurance</h4>
+        <ul>
+          <li><a href="#">Compare My Coverage</a></li>
+          <li><a href="#">Auto Insurance</a></li>
+          <li><a href="#">Homeowners Insurance</a></li>
+          <li><a href="#">Renters Insurance</a></li>
+          <li><a href="#">Commercial Insurance</a></li>
+          <li><a href="#">Free Defensive Driving</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Vehicle Solutions</h4>
+        <ul>
+          <li><a href="#">Browse New Inventory</a></li>
+          <li><a href="#">Browse Pre-Owned</a></li>
+          <li><a href="#">Trade-In Appraisal</a></li>
+          <li><a href="#">Financing Guidance</a></li>
+          <li><a href="#">Purchase Assistance</a></li>
+          <li><a href="#">Resource Center</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Justinvest LLC. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Use · Licensing Disclosures</p>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+function showTab(service) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+  const tabIndex = {re: 0, ins: 1, veh: 2};
+  document.querySelectorAll('.tab')[tabIndex[service]].classList.add('active');
+  document.getElementById('panel-' + service).classList.add('active');
+}
+</script>
+</body>
+</html>
+ 
